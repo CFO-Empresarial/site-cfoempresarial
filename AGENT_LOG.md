@@ -13,7 +13,13 @@ Decisoes:
 - Os docs deste repo nao trazem IP, caminho de servidor nem segredo, porque o repo esta PUBLICO no GitHub.
 - Varredura de segredos nos arquivos rastreados: nada encontrado.
 
+Verificado em 18/09/2026 13:58: `cfoempresarial.com.br` e `www` NAO resolvem (zona no Cloudflare, nameservers
+aaden/irena, sem registro A nem CNAME) e o GitHub nao registra nenhum deployment. O site ainda nao esta no
+dominio, e a Vercel nao parece ligada ao repo (deploy manual ou ainda em `*.vercel.app`).
+
 ### Pendencias
+- Apontar o dominio: adicionar o dominio no projeto da Vercel e criar na zona do Cloudflare os registros que
+  a Vercel indicar (modo DNS only, sem proxy), sem tocar nos registros MX/TXT do M365.
 - Repo publico no GitHub; a regra da casa e privado. Decisao do Marcos e do Marcelo (pode afetar o plano da
   Vercel: o plano gratuito nao publica repo privado de organizacao).
 - Confirmar com o Marcelo se o deploy e automatico pelo GitHub ou manual, e a conta/time da Vercel.
