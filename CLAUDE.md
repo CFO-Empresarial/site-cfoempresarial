@@ -46,6 +46,9 @@ Documentos que valem para os dois (no meta-repo, ler antes de tarefa de texto ou
 - Sem travessão em texto nenhum (regra da casa).
 - Cache: `index.html` referencia `design.css?v=AAAAMMDD` e `script.js?v=AAAAMMDD`. Mudou CSS ou JS, atualizar
   o `?v=` (o `_headers` dá cache de 1 ano a esses dois arquivos; sem trocar o `?v=` o visitante não vê a mudança).
+- Arquivo de `assets/` tem cache de 7 dias no navegador E na borda do Cloudflare, e o nome não muda. Trocou o
+  conteúdo de uma imagem: acrescentar ou atualizar `?v=AAAAMMDD` em toda referência a ela no HTML, senão o
+  visitante (e a borda) continuam com a antiga. O token da casa não tem permissão de limpar cache.
 - Os exemplos do painel (financeiro, comercial, operações) são ilustrativos, não integração ao vivo. Não
   apresentar como dado real.
 

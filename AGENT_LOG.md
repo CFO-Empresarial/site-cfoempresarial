@@ -1,5 +1,12 @@
 # AGENT_LOG.md - site-cfoempresarial
 
+[2026-09-18 18:03] LOGO NOVA NAO CHEGAVA AO VISITANTE: CACHE DA BORDA. Depois do deploy, `pages.dev` servia os 77 KB,
+mas o dominio seguia com os 687 KB (`cf-cache-status: HIT`): o cabecalho de 7 dias que eu pus em `/assets/*`
+vale tambem para a borda do Cloudflare e o nome do arquivo nao muda. A limpeza por API falhou (o token da casa
+nao tem a permissao Cache Purge). Correcao: as 3 referencias a logo (`index.html` x2, `404.html`) ganharam
+`?v=20260918`, a mesma convencao do CSS e do JS; regra registrada no `CLAUDE.md`. O `logo` do JSON-LD ficou sem
+`?v=` de proposito (URL estavel para buscador; a copia antiga da borda expira em ate 7 dias).
+
 [2026-09-18 17:58] LOGO OTIMIZADA (autorizado pelo Marcos). `assets/logo_gemini.jpeg` foi de 687 KB (1652x640) para
 77 KB (992x384, JPEG progressivo q85); e exibida com no maximo 248 px de largura, entao 992 px cobre tela de
 alta densidade com folga. Mesmo nome de arquivo: nenhum HTML, CSS ou JSON-LD mudou. O original intacto continua
