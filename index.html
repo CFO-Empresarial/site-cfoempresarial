@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A CFO Empresarial organiza processos, conecta dados e automatiza rotinas para pequenas e médias empresas.">
+  <meta name="theme-color" content="#14324A">
+  <meta property="og:title" content="CFO Empresarial | Processos, dados e automação">
+  <meta property="og:description" content="Uma base única, rotinas automáticas e decisões com dados.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/og-image.svg">
+  <title>CFO Empresarial | Processos, dados e automação</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./design.css?v=20260918">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#topo" aria-label="CFO Empresarial, início">
+        <img src="./assets/logo_gemini.jpeg" alt="CFO Empresarial" width="1652" height="640">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Abrir menu</span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Navegação principal">
+        <a href="#aplicacoes">IA na prática</a>
+        <a href="#como">Como atuamos</a>
+        <a href="#quem">Quem somos</a>
+        <a class="button button-small" href="#diagnostico">Agendar diagnóstico</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section id="topo" class="hero section-pad">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="signal" aria-hidden="true"></span> Inteligência artificial aplicada à operação</p>
+          <h1>Menos tarefas.<br>Mais <span>inteligência.</span></h1>
+          <p class="hero-lede">Sua equipe cuida do negócio.<br>A tecnologia cuida do repetitivo.</p>
+          <p class="hero-text">Conectamos os dados, organizamos os processos e aplicamos IA para tirar o trabalho manual da rotina da sua empresa.</p>
+          <div class="hero-actions">
+            <a class="button" href="#diagnostico">Vamos conversar <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#aplicacoes">Explore um processo <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="microcopy">Do diagnóstico à implantação. Com quem entende de negócio e tecnologia.</p>
+        </div>
+        <section id="aplicacoes" class="workflow" aria-labelledby="workflow-title">
+          <div class="workflow-top"><span class="workflow-symbol" aria-hidden="true">↳</span><span>Operação conectada</span><span class="demo-label">Exemplo ilustrativo</span></div>
+          <div class="workflow-heading"><h2 id="workflow-title">Do dado à decisão.</h2><p>Veja onde a IA pode entrar na sua rotina.</p></div>
+          <div class="workflow-tabs" role="tablist" aria-label="Exemplos de aplicação">
+            <button type="button" role="tab" id="tab-operacoes" aria-selected="true" aria-controls="workflow-panel" data-scenario="operacoes">Operações</button>
+            <button type="button" role="tab" id="tab-comercial" aria-selected="false" aria-controls="workflow-panel" tabindex="-1" data-scenario="comercial">Comercial</button>
+            <button type="button" role="tab" id="tab-financeiro" aria-selected="false" aria-controls="workflow-panel" tabindex="-1" data-scenario="financeiro">Financeiro</button>
+          </div>
+          <div id="workflow-panel" role="tabpanel" aria-labelledby="tab-operacoes" tabindex="0">
+            <div class="workflow-inputs"><span data-source="0">Solicitações</span><span data-source="1">Documentos</span><span data-source="2">Sistemas</span></div>
+            <div class="flow-join" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="ai-stage"><span class="stage-icon" aria-hidden="true">✳</span><div><strong data-demo="action">IA classifica cada solicitação</strong><p data-demo="detail">Extrai informações e identifica pendências.</p></div><span class="stage-badge">IA</span></div>
+            <div class="flow-line" aria-hidden="true"></div>
+            <div class="review-stage"><span class="review-icon" aria-hidden="true">✓</span><div><strong>Seu time valida o que importa</strong><p data-demo="review">Sua equipe confere exceções e prioridades.</p></div></div>
+            <div class="flow-line" aria-hidden="true"></div>
+            <div class="result-stage"><div><span>RESULTADO DO FLUXO</span><strong data-demo="result">Demanda encaminhada à pessoa certa</strong></div><span aria-hidden="true">↗</span></div>
+          </div>
+          <p class="workflow-foot">Dados conectados <span>·</span> Regras claras <span>·</span> Supervisão humana</p>
+        </section>
+      </div>
+    </section>
+
+    <div class="principles" aria-label="Pilares da CFO Empresarial">
+      <div class="container principles-grid">
+        <span><b>↳</b> Processos bem definidos</span><span><b>⊞</b> Dados conectados</span><span><b>⟳</b> Rotinas automáticas</span><span><b>✳</b> IA com propósito</span>
+      </div>
+    </div>
+
+    <section id="problema" class="section-pad section-rule">
+      <div class="container problem-grid">
+        <div class="section-intro reveal"><p class="eyebrow">O ponto de partida</p><h2>O trabalho cresce.<br>O retrabalho não precisa.</h2><p>O problema nem sempre é a ferramenta. É o caminho que a informação percorre até virar uma decisão.</p><a class="text-link" href="#diagnostico">Encontre seu próximo passo <span aria-hidden="true">↗</span></a></div>
+        <div class="problem-list">
+          <article class="problem-item reveal"><span>01</span><div><h3>Planilhas sem controle de versão</h3><p>Dados espalhados entre planilhas, e-mails, WhatsApp e sistemas. Cópias sem histórico, dúvida sobre qual é a versão certa, travamentos e erros.</p></div></article>
+          <article class="problem-item reveal"><span>02</span><div><h3>Horas em tarefas repetitivas</h3><p>A equipe executa, todo dia, rotinas que poderiam rodar sozinhas.</p></div></article>
+          <article class="problem-item reveal"><span>03</span><div><h3>Decisões com pouca visibilidade</h3><p>Relatórios chegam tarde ou incompletos, e a decisão é tomada no feeling.</p></div></article>
+          <article class="problem-item reveal"><span>04</span><div><h3>Processos que dependem de pessoas</h3><p>Conhecimento crítico concentrado em uma ou duas cabeças, pouco documentado.</p></div></article>
+          <article class="problem-item reveal"><span>05</span><div><h3>IA sem método nem integração</h3><p>Ferramentas isoladas geram testes interessantes e pouco resultado real.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como" class="process-section section-pad">
+      <div class="container">
+        <div class="process-heading reveal"><div><p class="eyebrow eyebrow-light">O método</p><h2>Do diagnóstico à implantação, na mesma equipe.</h2></div><p>Menos trabalho manual. Mais controle. Decisões mais rápidas.</p></div>
+        <div class="process-grid">
+          <article class="process-card reveal"><span>01</span><h3>Diagnóstico</h3><p>Uma conversa para identificar onde a empresa perde tempo, informação e controle, e o que pode gerar resultado primeiro.</p></article>
+          <article class="process-card reveal"><span>02</span><h3>Organizar processos e dados</h3><p>Mapeamos rotinas, eliminamos gargalos e estruturamos as informações em uma base única e confiável.</p></article>
+          <article class="process-card reveal"><span>03</span><h3>Automatizar tarefas</h3><p>Lançamentos, documentos, contratos, conciliações e rotinas operacionais e financeiras passam a trabalhar com o time.</p></article>
+          <article class="process-card reveal"><span>04</span><h3>Soluções sob medida</h3><p>Desenvolvemos o que o mercado não entrega pronto e treinamos a equipe para usar IA com método e segurança.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="quem" class="section-pad section-rule">
+      <div class="container people-section">
+        <div class="section-intro reveal"><p class="eyebrow">Quem faz</p><h2>Negócio e tecnologia na mesma equipe.</h2><p>Quem entende o financeiro e quem constrói o sistema são as mesmas duas pessoas que vão sentar com você.</p></div>
+        <div class="people-grid">
+          <article class="person-card reveal"><img src="./assets/marcos.jpg" alt="Marcos Fleming" width="218" height="218" loading="lazy"><div><h3>Marcos Fleming</h3><p class="person-role">Finanças, dados e automação</p><p>Mestre em International Business and Economics, especialista em Finanças Corporativas e em Investimentos &amp; Asset Allocation. Passou por Nike, HPE e Helmholtz-Zentrum (UFZ), conectando finanças, ciência de dados e tecnologia.</p></div></article>
+          <article class="person-card reveal reveal-delay"><img src="./assets/marcelo.jpg" alt="Marcelo Fleming" width="218" height="218" loading="lazy"><div><h3>Marcelo Fleming</h3><p class="person-role">Tecnologia, processos e automação</p><p>Mais de 18 anos criando sistemas e automações para operações de missão crítica, em mineração, saúde, transporte, finanças, geoprocessamento e assistência veicular.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="diagnostico" class="diagnostic-section section-pad">
+      <div class="container diagnostic-grid">
+        <div class="diagnostic-copy reveal"><p class="eyebrow">Próximo passo</p><h2>Comece pelo diagnóstico.</h2><p>Responda o que souber. Na conversa, cobrimos o resto: qual atividade tem mais erro e retrabalho, qual tem a pior relação custo/resultado e o que pode dar resultado primeiro.</p><div class="direct-contact"><p>Prefere falar direto?</p><a href="https://wa.me/5531988835366">WhatsApp 31 98883-5366</a><a href="mailto:contato@cfoempresarial.com.br">contato@cfoempresarial.com.br</a></div></div>
+        <noscript><p class="nojs-contact">Para agendar seu diagnóstico, <a class="text-link" href="https://wa.me/5531988835366">fale diretamente pelo WhatsApp ↗</a>.</p></noscript>
+        <form id="diagnostic-form" class="diagnostic-form reveal" data-whatsapp="5531988835366" novalidate>
+          <div class="form-row"><label>Seu nome<input name="nome" type="text" autocomplete="name" required></label><label>Empresa<input name="empresa" type="text" autocomplete="organization"></label></div>
+          <label>WhatsApp<input name="whatsapp" type="tel" autocomplete="tel"></label>
+          <label>Qual a maior dor hoje no seu negócio?<select name="dor"><option>Não sei qual planilha é a certa</option><option>Relatório chega tarde ou incompleto</option><option>Muita gente fazendo tarefa repetitiva</option><option>Tudo depende de uma ou duas pessoas</option><option>Testamos IA e não deu em nada</option><option>Outra</option></select></label>
+          <label>Qual atividade recorrente e manual toma mais tempo?<textarea name="rotina" rows="4" required></textarea></label>
+          <button class="button" type="submit">Quero agendar o diagnóstico</button>
+          <p class="form-note">O botão abre uma mensagem pronta no WhatsApp. Retornamos em até um dia útil.</p><p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><a class="footer-brand" href="#topo"><img src="./assets/logo_gemini.jpeg" alt="CFO Empresarial" width="420" height="180"></a><div><p>© Copyright 2026 CFO Empresarial LTDA</p></div><div class="footer-links"><a href="https://wa.me/5531988835366">WhatsApp</a><a href="mailto:contato@cfoempresarial.com.br">E-mail</a></div></div></footer>
+  <script src="./script.js?v=20260918" defer></script>
+</body>
+</html>

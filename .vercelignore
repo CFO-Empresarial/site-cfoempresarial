@@ -1,0 +1,15 @@
+.env*
+.git/
+.vercel/
+vendor/
+*.zip
+*.log
+README.md
+Main.dc.reference.html
+styles.css
+support.js
+/logo_gemini.jpeg
+/marcos.jpg
+/marcelo.jpg
+/paleta.png
+assets/paleta.png
