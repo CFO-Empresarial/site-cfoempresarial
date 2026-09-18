@@ -1,5 +1,10 @@
 # AGENT_LOG.md - site-cfoempresarial
 
+[2026-09-18 15:17] SEARCH CONSOLE E APP DO GITHUB. O Marcos liberou o repo ao app do Cloudflare no GitHub e criou a
+propriedade de dominio no Google Search Console, para este site e para o cfopessoal.com.br. Conferido no DNS
+autoritativo: TXT `google-site-verification` presente nas duas zonas; os dois `sitemap.xml` respondem 200. Este
+commit e o teste do deploy automatico pelo push no `origin` (resultado na entrada seguinte, se falhar).
+
 [2026-09-18 14:26] SITE NO AR EM https://cfoempresarial.com.br, NO CLOUDFLARE PAGES. Com a Vercel bloqueada (entrada
 abaixo), o Marcos escolheu hospedar no Pages, como o blog irmao. Commits 69e015e e 21caeaf.
 - Repo: `scripts/build-pages.sh` monta `dist/` so com os arquivos do site; `_headers` (mesmos cabecalhos e CSP do
