@@ -1,5 +1,31 @@
 # AGENT_LOG.md - site-cfoempresarial
 
+[2026-09-18 14:26] SITE NO AR EM https://cfoempresarial.com.br, NO CLOUDFLARE PAGES. Com a Vercel bloqueada (entrada
+abaixo), o Marcos escolheu hospedar no Pages, como o blog irmao. Commits 69e015e e 21caeaf.
+- Repo: `scripts/build-pages.sh` monta `dist/` so com os arquivos do site; `_headers` (mesmos cabecalhos e CSP do
+  `vercel.json`, cache), `_redirects`, `functions/_middleware.js` (301 de `www`), `404.html` (necessaria no
+  Pages, que sem ela devolve 200 com a home em qualquer URL; usa so classes ja existentes do `design.css`).
+- Cloudflare, via API com o token da casa: projeto Pages `site-cfoempresarial` ligado ao GitHub (build
+  `bash scripts/build-pages.sh`, saida `dist`, previews desligados), dominios `cfoempresarial.com.br` e `www`
+  ativos, dois CNAME com proxy para `site-cfoempresarial.pages.dev`. Registros do M365 intactos. Na zona:
+  Always Use HTTPS ligado e TLS minimo 1.2 (so afetam o que passa pelo proxy, ou seja, o site).
+- A CSP bloqueava o beacon do Cloudflare Web Analytics que a zona injeta; liberei `static.cloudflareinsights.com`
+  e `cloudflareinsights.com`. O site passa a ter analytics sem cookie.
+
+Verificado no dominio real: `/` 200; `www` 301 para o dominio sem www preservando caminho e query; http 301
+para https; `robots.txt`, `sitemap.xml` e `og-image.png` 200; URL inexistente 404; `CLAUDE.md`, `AGENT_LOG.md`,
+`README.md`, `vercel.json`, `scripts/` e `functions/` 404; `/index.html` 308 para `/`; cabecalhos de seguranca
+presentes; navegador real (390 e 1440 px, entrando por `www`): zero erro de console, fontes carregadas, sem
+overflow, os dois `mailto` corretos depois da protecao de e-mail do Cloudflare.
+
+### Pendencias
+- O push no `origin` NAO disparou deploy: o app do Cloudflare no GitHub nao deve ter acesso a este repo. Ate o
+  Marcos liberar, o deploy e disparado pela API (`cf_pages_deploy.py site-cfoempresarial` no servidor da casa).
+- Google Search Console: propriedade de dominio e envio do sitemap (passo do Marcos).
+- Time da casa na Vercel bloqueado por "fair use": afeta o `skyhail-web`, que segue no ar mas nao aceita deploy
+  novo. Registrado tambem no log global.
+- Avisar o Marcelo da troca de hospedagem e da CSP.
+
 [2026-09-18 14:05] LOTE TECNICO DE SEO E SEGURANCA (pedido do Marcos: os mesmos ajustes tecnicos do cfopessoal-blog, sem
 mexer no frontend, e publicar no dominio). Commit f268c33. Nada visivel mudou: nenhum texto, CSS ou JS alterado.
 - `index.html` (so o `<head>`): canonical absoluto, `og:url`, `og:site_name`, `og:locale`, `og:image` em PNG com

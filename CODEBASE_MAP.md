@@ -2,7 +2,7 @@
 
 > Criado em 2026-09-18, a partir do commit inicial do Marcelo (2420324).
 
-## Vai ao ar (Vercel publica a raiz, menos o que está no `.vercelignore`)
+## Vai ao ar (Cloudflare Pages publica `dist/`, montado por `scripts/build-pages.sh`)
 - `index.html`: página única. Seções por âncora: `#topo` (hero), `#aplicacoes` (IA na prática, painel com
   abas financeiro/comercial/operações), `#como` (como atuamos), `#quem` (Marcos e Marcelo), `#diagnostico`
   (formulário). SEO e Open Graph no `<head>`. Rodapé com WhatsApp e `contato@cfoempresarial.com.br`.
@@ -10,11 +10,15 @@
   A logo JPEG é mesclada ao fundo por CSS (`mix-blend-mode`, `mask-image`).
 - `script.js`: menu mobile, abas do painel de exemplos, formulário que abre o WhatsApp com mensagem pronta.
 - `assets/`: `logo_gemini.jpeg`, `marcos.jpg`, `marcelo.jpg`, `favicon.svg`, `og-image.svg`.
-- `Main.dc.html`: redireciona para a página nova.
+- `404.html`: página de erro (sem ela o Pages responde 200 com a home em qualquer URL).
+- `_headers` (segurança, CSP, cache), `_redirects` (`/Main.dc.html` para `/`), `functions/_middleware.js`
+  (301 de `www` para o domínio sem www).
 - `robots.txt`, `sitemap.xml`: rastreio (robôs de busca e de IA liberados). `assets/og-image.png`: imagem de
   compartilhamento, gerada do `og-image.svg` (mudou o SVG, gerar o PNG de novo).
 
 ## Não vai ao ar (referência e contexto)
+- `Main.dc.html`: redirecionava para a página nova; hoje o `_redirects` faz isso.
+- `scripts/build-pages.sh`: build command do Pages. `dist/` é gerado, fora do git.
 - `Main.dc.reference.html`, `support.js`, `vendor/react*.js`: mockup exportado da ferramenta de design e o
   runtime que o renderiza. Só referência visual.
 - `styles.css`: estilos da versão anterior, não carregado.
@@ -24,14 +28,14 @@
 - `CLAUDE.md`, `AGENT_LOG.md`, `CODEBASE_MAP.md`: contexto dos agentes.
 
 ## Configuração
-- `vercel.json`: sem framework, sem build, `outputDirectory: "."`. Redirect 301 de `www` para o domínio sem
-  www, `cleanUrls`, cabeçalhos de segurança com CSP (self + Google Fonts: script, fonte ou imagem de outro
-  domínio exige ajustar a CSP) e cache longo de `design.css`/`script.js` (o `?v=` é obrigatório).
+- `vercel.json`: SEM USO desde que o site foi para o Cloudflare Pages. Mantido espelhando redirects e
+  cabeçalhos do `_headers`, caso o site volte para a Vercel.
 - `.vercelignore`: lista do que não é publicado. Todo arquivo novo que não é do site entra aqui.
 - `.gitignore`: `.vercel`, `.env*`.
 
 ## Integrações externas
-Google Fonts e `wa.me`. Sem backend, sem analytics, sem banco.
+Google Fonts, `wa.me` e Cloudflare Web Analytics (beacon sem cookie, injetado pelo Cloudflare). Sem backend,
+sem banco. DNS do domínio na zona do Cloudflare (dois CNAME com proxy para o `pages.dev`; e-mail é M365).
 
 ## Remotes
 `origin` (GitHub `CFO-Empresarial/site-cfoempresarial`) e `captiva` (mirror da casa).

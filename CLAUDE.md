@@ -2,8 +2,10 @@
 
 ## O que é
 Repositório do **site cfoempresarial.com.br** (CFO Empresarial: processos, dados e automação para pequenas e
-médias empresas). Página única estática, criada pelo Marcelo e publicada em 18/09/2026. Hospedagem na Vercel,
-sem build (`vercel.json`: `framework: null`, `outputDirectory: "."`).
+médias empresas). Página única estática, criada pelo Marcelo e publicada no domínio em 18/09/2026. Hospedagem no
+**Cloudflare Pages** (projeto `site-cfoempresarial`, ligado ao GitHub, build `bash scripts/build-pages.sh`,
+saída `dist/`). A Vercel foi a primeira opção, mas o time da casa lá está bloqueado ("fair use") e o plano
+hobby não permite uso comercial; o `vercel.json` ficou no repo, espelhando os mesmos cabeçalhos, sem uso.
 
 As regras globais da casa vêm do `CLAUDE.md` do meta-repo (carregado automaticamente ao abrir o Claude dentro
 desta pasta). Aqui fica só o que é específico deste site.
@@ -15,7 +17,7 @@ cliente"). Diferenças que importam:
 
 | | site-cfoempresarial | cfopessoal-blog |
 |---|---|---|
-| Hospedagem | Vercel, raiz do repo | Cloudflare Pages, pasta `site/` |
+| Hospedagem | Cloudflare Pages, `dist/` montado por script | Cloudflare Pages, pasta `site/` |
 | Origem | HTML/CSS/JS escritos à mão | cópia estática de WordPress/Elementor |
 | Formulário | JS abre o WhatsApp com mensagem pronta | Pages Function (e-mail + WhatsApp) |
 | Autor técnico | Marcelo | Marcos + agentes |
@@ -30,21 +32,27 @@ Documentos que valem para os dois (no meta-repo, ler antes de tarefa de texto ou
 ## Regras deste site
 - **O Marcelo é o autor.** Mudança de layout, estrutura ou comportamento é combinada com ele ou pedida pelo
   Marcos. Mudança de texto só com autorização do Marcos.
-- **Tudo que está na raiz vai ao ar.** A Vercel publica a raiz do repo. Arquivo novo que não é do site
-  (doc, log, script, rascunho) entra no `.vercelignore` NO MESMO commit. Conferir depois do deploy que
-  `https://cfoempresarial.com.br/CLAUDE.md` responde 404.
+- **Só vai ao ar o que o `scripts/build-pages.sh` copia para `dist/`** (lista explícita de arquivos mais a
+  pasta `assets/`). Arquivo novo do site na raiz entra no script; arquivo novo em `assets/` vai ao ar sozinho,
+  então nada que não seja do site entra em `assets/`. Conferir depois do deploy que
+  `https://cfoempresarial.com.br/CLAUDE.md` responde 404. O `.vercelignore` continua coerente, por garantia.
+- **CSP restrita** em `_headers`: só `self`, Google Fonts e o beacon do Cloudflare Web Analytics. Script, fonte,
+  imagem ou iframe de outro domínio, e script ou estilo inline, exigem ajustar a CSP (em `_headers` e no
+  `vercel.json`) e conferir zero erro de console.
+- `www` redireciona 301 para o domínio sem www em `functions/_middleware.js`. Canonical, `og:url`, sitemap e
+  JSON-LD usam `https://cfoempresarial.com.br/`. `assets/og-image.png` é gerado do SVG: mudou um, refazer o outro.
 - **Nada interno neste repo**: sem segredo, IP, caminho de servidor ou dado de cliente em nenhum arquivo,
   inclusive nestes docs. Conferir a visibilidade do repo no GitHub antes de escrever qualquer coisa sensível.
 - Sem travessão em texto nenhum (regra da casa).
 - Cache: `index.html` referencia `design.css?v=AAAAMMDD` e `script.js?v=AAAAMMDD`. Mudou CSS ou JS, atualizar
-  o `?v=`.
+  o `?v=` (o `_headers` dá cache de 1 ano a esses dois arquivos; sem trocar o `?v=` o visitante não vê a mudança).
 - Os exemplos do painel (financeiro, comercial, operações) são ilustrativos, não integração ao vivo. Não
   apresentar como dado real.
 
 ## Arquivos que servem o site
-`index.html`, `design.css`, `script.js`, `assets/`. O resto é referência do mockup (`Main.dc.*`, `support.js`,
-`vendor/`, `styles.css`, imagens soltas na raiz) e fica fora do deploy pelo `.vercelignore`. Detalhe no
-`CODEBASE_MAP.md`.
+`index.html`, `404.html`, `design.css`, `script.js`, `robots.txt`, `sitemap.xml`, `_headers`, `_redirects`,
+`assets/` e `functions/_middleware.js`. O resto é referência do mockup (`Main.dc.*`, `support.js`, `vendor/`,
+`styles.css`, imagens soltas na raiz) e fica fora do deploy. Detalhe no `CODEBASE_MAP.md`.
 
 ## Formulário de diagnóstico
 `#diagnostic-form` em `index.html`; `script.js` monta a mensagem e abre `https://wa.me/<numero>` (número no
@@ -60,10 +68,11 @@ Marcelo registrou no `README.md`.
 ## Fluxo
 - Trabalho de programação no clone de trabalho do servidor da casa; o Windows só sincroniza (`git pull`).
 - Commit + push para `captiva` (mirror) e `origin` (GitHub `CFO-Empresarial/site-cfoempresarial`). O push no
-  `origin` sai do Windows. Se a Vercel estiver ligada ao GitHub, o push no `origin` publica o site: tratar
-  todo push no `origin` como deploy de produção.
-- A confirmar com o Marcelo: se o deploy é automático pelo GitHub ou manual pela CLI da Vercel, e em qual
-  conta/time da Vercel o projeto está.
+  `origin` sai do Windows. Tratar todo push no `origin` como deploy de produção.
+- Deploy: o projeto do Pages lê o `main` do GitHub. Enquanto o app do Cloudflare no GitHub não tiver acesso a
+  este repo, o push NÃO dispara o deploy sozinho: depois do push no `origin`, rodar no servidor da casa o
+  script de deploy do Pages (`cf_pages_deploy.py site-cfoempresarial`, documentado no meta-repo em
+  `docs/empresa/migracao-hostgator-cloudflare.md`). Conferir no `AGENT_LOG.md` se isso já foi resolvido.
 
 ## Sessões paralelas e coordenação (padrão da casa, 2026-08-29)
 - 1 sessão ativa por working tree; paralelismo só via worktree isolado.
