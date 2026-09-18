@@ -69,10 +69,9 @@ Marcelo registrou no `README.md`.
 - Trabalho de programação no clone de trabalho do servidor da casa; o Windows só sincroniza (`git pull`).
 - Commit + push para `captiva` (mirror) e `origin` (GitHub `CFO-Empresarial/site-cfoempresarial`). O push no
   `origin` sai do Windows. Tratar todo push no `origin` como deploy de produção.
-- Deploy: o projeto do Pages lê o `main` do GitHub. Enquanto o app do Cloudflare no GitHub não tiver acesso a
-  este repo, o push NÃO dispara o deploy sozinho: depois do push no `origin`, rodar no servidor da casa o
-  script de deploy do Pages (`cf_pages_deploy.py site-cfoempresarial`, documentado no meta-repo em
-  `docs/empresa/migracao-hostgator-cloudflare.md`). Conferir no `AGENT_LOG.md` se isso já foi resolvido.
+- Deploy: automático. O push no `main` do `origin` publica o site no Pages em cerca de um minuto (testado em
+  18/09/2026). Se um dia não disparar, o script `cf_pages_deploy.py site-cfoempresarial` no servidor da casa
+  força o deploy (documentado no meta-repo em `docs/empresa/migracao-hostgator-cloudflare.md`).
 
 ## Sessões paralelas e coordenação (padrão da casa, 2026-08-29)
 - 1 sessão ativa por working tree; paralelismo só via worktree isolado.

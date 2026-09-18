@@ -1,5 +1,11 @@
 # AGENT_LOG.md - site-cfoempresarial
 
+[2026-09-18 15:19] DEPLOY AUTOMATICO CONFIRMADO E SITEMAPS ENVIADOS. O commit a1baa94 foi publicado sozinho pelo Pages
+(gatilho `github:push`, menos de um minuto); site 200 e arquivos internos 404 depois do deploy. O Marcos enviou os
+sitemaps deste site e do cfopessoal.com.br no Search Console. `CLAUDE.md` atualizado: o deploy e automatico.
+Pendencias que restam: bloqueio do time na Vercel (skyhail-web), avisar o Marcelo da hospedagem e da CSP, peso
+da logo (687 KB), repo publico, formulario sem registro de lead.
+
 [2026-09-18 15:17] SEARCH CONSOLE E APP DO GITHUB. O Marcos liberou o repo ao app do Cloudflare no GitHub e criou a
 propriedade de dominio no Google Search Console, para este site e para o cfopessoal.com.br. Conferido no DNS
 autoritativo: TXT `google-site-verification` presente nas duas zonas; os dois `sitemap.xml` respondem 200. Este
