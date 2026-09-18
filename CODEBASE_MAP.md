@@ -11,6 +11,8 @@
 - `script.js`: menu mobile, abas do painel de exemplos, formulário que abre o WhatsApp com mensagem pronta.
 - `assets/`: `logo_gemini.jpeg`, `marcos.jpg`, `marcelo.jpg`, `favicon.svg`, `og-image.svg`.
 - `Main.dc.html`: redireciona para a página nova.
+- `robots.txt`, `sitemap.xml`: rastreio (robôs de busca e de IA liberados). `assets/og-image.png`: imagem de
+  compartilhamento, gerada do `og-image.svg` (mudou o SVG, gerar o PNG de novo).
 
 ## Não vai ao ar (referência e contexto)
 - `Main.dc.reference.html`, `support.js`, `vendor/react*.js`: mockup exportado da ferramenta de design e o
@@ -22,8 +24,9 @@
 - `CLAUDE.md`, `AGENT_LOG.md`, `CODEBASE_MAP.md`: contexto dos agentes.
 
 ## Configuração
-- `vercel.json`: sem framework, sem build, `outputDirectory: "."`. Ainda sem cabeçalhos de segurança
-  (pendência do padrão de segurança da casa).
+- `vercel.json`: sem framework, sem build, `outputDirectory: "."`. Redirect 301 de `www` para o domínio sem
+  www, `cleanUrls`, cabeçalhos de segurança com CSP (self + Google Fonts: script, fonte ou imagem de outro
+  domínio exige ajustar a CSP) e cache longo de `design.css`/`script.js` (o `?v=` é obrigatório).
 - `.vercelignore`: lista do que não é publicado. Todo arquivo novo que não é do site entra aqui.
 - `.gitignore`: `.vercel`, `.env*`.
 

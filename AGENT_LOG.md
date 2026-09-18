@@ -1,5 +1,42 @@
 # AGENT_LOG.md - site-cfoempresarial
 
+[2026-09-18 14:05] LOTE TECNICO DE SEO E SEGURANCA (pedido do Marcos: os mesmos ajustes tecnicos do cfopessoal-blog, sem
+mexer no frontend, e publicar no dominio). Commit f268c33. Nada visivel mudou: nenhum texto, CSS ou JS alterado.
+- `index.html` (so o `<head>`): canonical absoluto, `og:url`, `og:site_name`, `og:locale`, `og:image` em PNG com
+  URL absoluta e dimensoes, `twitter:card`, JSON-LD `ProfessionalService` (contato, Belo Horizonte, dois
+  fundadores) + `WebSite`.
+- `assets/og-image.png`: 1200x630, renderizado do `og-image.svg` (titulo em 50px porque a fonte serifada do
+  servidor e mais larga que a Georgia e cortava o texto em 58px). O SVG ficou como esta.
+- `robots.txt` (libera tudo, nomeia GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, aponta o
+  sitemap) e `sitemap.xml` (uma URL).
+- `vercel.json`: redirect 301 de `www` para o dominio sem www preservando caminho e query, `cleanUrls`
+  (`/index.html` vira `/`), `/Main.dc.html` 301 para `/`, cabecalhos de seguranca (nosniff, X-Frame-Options,
+  Referrer-Policy, Permissions-Policy, HSTS, CSP restrita a self + Google Fonts), cache de 1 ano para
+  `design.css`/`script.js` (por isso o `?v=` e obrigatorio) e 7 dias para `assets/`.
+- Nao criei `404.html`: a Vercel ja responde 404 de verdade em URL inexistente (o problema do blog era do Pages).
+
+Verificacao (Playwright, servidor local aplicando os cabecalhos do `vercel.json`, inclusive a CSP): 360, 390,
+768, 1024 e 1440 px sem overflow, fontes carregadas, abas por clique e teclado, menu mobile com Escape,
+formulario com `window.open` interceptado (destino `wa.me` correto, nenhum envio real), zero erro de console,
+JSON-LD valido.
+
+### BLOQUEIO NA PUBLICACAO
+- A Vercel CLI do servidor esta logada como `marcosflemingcfo`, time `cfo-empresarial` (hobby). O time so tem o
+  projeto `skyhail-web`; o site NAO esta nele (o projeto do Marcelo deve estar na conta dele). Ao criar o
+  projeto, a Vercel recusou: "Your Team exceeded our fair use limits and has been blocked". O `skyhail-web`
+  continua respondendo 200, mas o time nao aceita projeto nem deploy novo. Nao contornei o bloqueio.
+- Zona `cfoempresarial.com.br` ativa no Cloudflare, so com os registros do M365. Nenhum A/CNAME criado ainda,
+  porque o destino depende de onde o site vai ficar hospedado.
+- Decisao pendente do Marcos: (a) o Marcelo adiciona o dominio no projeto dele na Vercel e o DNS e criado
+  daqui; (b) hospedar no Cloudflare Pages como o blog irmao (conta, token e zona ja existem; o plano gratuito
+  permite uso comercial, o hobby da Vercel nao); (c) resolver o bloqueio do time na Vercel.
+
+### Pendencias que continuam
+- `assets/logo_gemini.jpeg` tem 687 KB e e a maior imagem da primeira dobra: recomprimir (ou WebP) melhora o
+  LCP. Nao fiz porque altera asset do Marcelo e o CSS mescla o fundo do JPEG.
+- Repo publico no GitHub, sem gitleaks em CI. Formulario nao registra o lead. Sem analytics.
+- Depois de publicar: Google Search Console (propriedade de dominio via TXT no Cloudflare) e envio do sitemap.
+
 [2026-09-18 13:54] PROJETO TRAZIDO PARA O PADRAO DA CASA. A pedido do Marcos, o repo que o Marcelo publicou
 hoje (commit 2420324, site estatico na Vercel) foi clonado em `C:\Dev\projetos\site-cfoempresarial`, ganhou
 mirror no servidor da casa (remote `captiva`, bare + clone de trabalho) e os artefatos de contexto:
