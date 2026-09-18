@@ -1,5 +1,12 @@
 # AGENT_LOG.md - site-cfoempresarial
 
+[2026-09-18 17:58] LOGO OTIMIZADA (autorizado pelo Marcos). `assets/logo_gemini.jpeg` foi de 687 KB (1652x640) para
+77 KB (992x384, JPEG progressivo q85); e exibida com no maximo 248 px de largura, entao 992 px cobre tela de
+alta densidade com folga. Mesmo nome de arquivo: nenhum HTML, CSS ou JSON-LD mudou. O original intacto continua
+em `/logo_gemini.jpeg` na raiz (fora do deploy). Prova: cabecalho e rodape da pagina real renderizados a 2x com a
+logo antiga e a nova, diferenca media 0,24 e 0,21 em 255, sem diferenca visivel. Era o ponto `ACIMA` deste site no
+`scripts/verificar_publicacao.py` do meta-repo (orcamento de imagem: 100 KB). Pendencia de logo encerrada.
+
 [2026-09-18 15:19] DEPLOY AUTOMATICO CONFIRMADO E SITEMAPS ENVIADOS. O commit a1baa94 foi publicado sozinho pelo Pages
 (gatilho `github:push`, menos de um minuto); site 200 e arquivos internos 404 depois do deploy. O Marcos enviou os
 sitemaps deste site e do cfopessoal.com.br no Search Console. `CLAUDE.md` atualizado: o deploy e automatico.
