@@ -17,3 +17,8 @@ support.js
 /marcelo.jpg
 /paleta.png
 assets/paleta.png
+dist/
+scripts/
+functions/
+_headers
+_redirects
