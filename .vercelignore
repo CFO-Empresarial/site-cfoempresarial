@@ -5,6 +5,10 @@ vendor/
 *.zip
 *.log
 README.md
+CLAUDE.md
+AGENTS.md
+AGENT_LOG.md
+CODEBASE_MAP.md
 Main.dc.reference.html
 styles.css
 support.js
