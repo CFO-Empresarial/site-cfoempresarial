@@ -1,5 +1,17 @@
 # AGENT_LOG.md - site-cfoempresarial
 
+[2026-09-18 18:18] REVISAO DE BUSCA NO GOOGLE E NAS IAS, SEM MUDAR O SITE. Pedido do Marcos. Registro completo em
+`docs/operacoes/2026-09-18-busca-google-e-ia.md`: decisao de foco, verificacoes e 21 pendencias (A fora do site,
+B tecnico invisivel, C texto e estrutura).
+- DECISAO DO MARCOS: o foco e desenvolvimento de sistemas junto com consultoria empresarial, de processos e
+  financeira; o que se entrega e o sistema com as melhorias. Nada de "CFO como servico", valuation ou
+  "consultoria financeira" como porta de entrada. O texto atual do site ja segue essa linha.
+- Verificado: `robots.txt` servido e o do repo; GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot,
+  Google-Extended, bingbot e Googlebot recebem 200 pelo user agent; `/llms.txt` 404. O token da casa nao le a
+  configuracao de bots da zona (erro de autenticacao em `bot_management`): a conferencia no painel ficou para o
+  Marcos (item A3), junto com Bing, Crawler Hints e Perfil da Empresa no Google (A1, A2, A4).
+- Itens B e C ficam parados ate o "ok" do Marcos (texto) e conversa com o Marcelo (layout).
+
 [2026-09-18 18:03] LOGO NOVA NAO CHEGAVA AO VISITANTE: CACHE DA BORDA. Depois do deploy, `pages.dev` servia os 77 KB,
 mas o dominio seguia com os 687 KB (`cf-cache-status: HIT`): o cabecalho de 7 dias que eu pus em `/assets/*`
 vale tambem para a borda do Cloudflare e o nome do arquivo nao muda. A limpeza por API falhou (o token da casa

@@ -26,6 +26,7 @@
   material de marca.
 - `README.md`: notas do Marcelo (estrutura e verificação de 18/09/2026).
 - `CLAUDE.md`, `AGENT_LOG.md`, `CODEBASE_MAP.md`: contexto dos agentes.
+- `docs/operacoes/`: registros datados de revisões e decisões (ex.: busca no Google e nas IAs, 18/09/2026).
 
 ## Configuração
 - `vercel.json`: SEM USO desde que o site foi para o Cloudflare Pages. Mantido espelhando redirects e
