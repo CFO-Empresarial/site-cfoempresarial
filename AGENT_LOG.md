@@ -1,5 +1,10 @@
 # AGENT_LOG.md - site-cfoempresarial
 
+[2026-09-19 16:45] RODAPE SEM "LTDA" (autorizado pelo Marcos). `index.html`: "© Copyright 2026 CFO Empresarial LTDA" virou
+"© 2026 CFO Empresarial". Motivo: nao existe CNPJ com o nome CFO Empresarial (Marcos e Marcelo tem PJs
+separadas); a marca pode ser citada, o "LTDA" nao. Nenhum outro arquivo servido cita LTDA ou CNPJ (JSON-LD sem
+`legalName`). Pendencia futura: quando houver CNPJ proprio, rodape com razao social e CNPJ.
+
 [2026-09-19 16:31] PROTECAO DE BORDA (ROBOS, PAISES, WAF): DESENHADA, NAO APLICADA. Pedido do Marcos (bloquear paises por
 causa de robos). Registro completo em `docs/operacoes/2026-09-19-protecao-de-borda.md`; padrao canonico e script
 no meta-repo (`docs/empresa/padrao-protecao-de-borda.md`, `scripts/cloudflare/proteger_zonas.py`, skill
