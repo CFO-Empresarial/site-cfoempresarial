@@ -43,6 +43,11 @@ Documentos que valem para os dois (no meta-repo, ler antes de tarefa de texto ou
   JSON-LD usam `https://cfoempresarial.com.br/`. `assets/og-image.png` é gerado do SVG: mudou um, refazer o outro.
 - **Nada interno neste repo**: sem segredo, IP, caminho de servidor ou dado de cliente em nenhum arquivo,
   inclusive nestes docs. Conferir a visibilidade do repo no GitHub antes de escrever qualquer coisa sensível.
+- **Proteção de borda** (robôs, países, WAF, limite de taxa): segue o `docs/empresa/padrao-protecao-de-borda.md`
+  do meta-repo e é aplicada pelo script de lá, nunca por clique no painel. Neste site: país recebe desafio,
+  nunca bloqueio; Bot Fight Mode fica desligado por causa da CSP restrita; função nova no caminho de toda
+  requisição é proibida (o `functions/_middleware.js` atual sai quando o redirect de `www` estiver na zona).
+  Registro em `docs/operacoes/2026-09-19-protecao-de-borda.md`.
 - Sem travessão em texto nenhum (regra da casa).
 - Cache: `index.html` referencia `design.css?v=AAAAMMDD` e `script.js?v=AAAAMMDD`. Mudou CSS ou JS, atualizar
   o `?v=` (o `_headers` dá cache de 1 ano a esses dois arquivos; sem trocar o `?v=` o visitante não vê a mudança).

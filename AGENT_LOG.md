@@ -1,5 +1,17 @@
 # AGENT_LOG.md - site-cfoempresarial
 
+[2026-09-19 16:31] PROTECAO DE BORDA (ROBOS, PAISES, WAF): DESENHADA, NAO APLICADA. Pedido do Marcos (bloquear paises por
+causa de robos). Registro completo em `docs/operacoes/2026-09-19-protecao-de-borda.md`; padrao canonico e script
+no meta-repo (`docs/empresa/padrao-protecao-de-borda.md`, `scripts/cloudflare/proteger_zonas.py`, skill
+`protecao-de-borda`).
+- Desenho: robos verificados passam primeiro; sondas (`/.env`, `/.git`, `.php`, `/wp-*`) bloqueadas; desafio
+  gerenciado fora de BR, PT, US e Cone Sul (nunca bloqueio por pais); limite de 100 pedidos em 10 s por IP; Bot
+  Fight Mode DESLIGADO por causa da CSP restrita; robos de IA seguem liberados.
+- Achado: `functions/_middleware.js` roda em todo pedido e gasta a cota diaria de funcoes. O projeto esta em fail
+  open (site nao cai). O redirect de `www` vai para a zona; retirar o middleware depois, combinado com o Marcelo.
+- NAO FIZ / FALHOU: nada gravado na zona. O token da casa nao tem WAF, robos, redirecionamento nem analytics.
+  Nenhum arquivo do site mudou. Pendencia do Marcos: ampliar o token e rodar `--aplicar`.
+
 [2026-09-18 18:18] REVISAO DE BUSCA NO GOOGLE E NAS IAS, SEM MUDAR O SITE. Pedido do Marcos. Registro completo em
 `docs/operacoes/2026-09-18-busca-google-e-ia.md`: decisao de foco, verificacoes e 21 pendencias (A fora do site,
 B tecnico invisivel, C texto e estrutura).
