@@ -1,5 +1,10 @@
 # AGENT_LOG.md - site-cfoempresarial
 
+[2026-09-19 16:53] PROTECAO DE BORDA, REVISAO DO PLANO (pedido do Marcos, antes de executar). Paises sem desafio passam a ser
+BR, US, PT, ES, FR e DE (relacoes reais do Marcos; fora da lista ninguem e bloqueado, so desafiado). Regra nova:
+desafio para rede de datacenter (AWS, OVH, Hetzner, Contabo e afins; Google e Microsoft fora de proposito).
+Detalhe no meta-repo, `docs/empresa/padrao-protecao-de-borda.md`. Nada gravado na zona; nenhum arquivo do site mudou.
+
 [2026-09-19 16:45] RODAPE SEM "LTDA" (autorizado pelo Marcos). `index.html`: "© Copyright 2026 CFO Empresarial LTDA" virou
 "© 2026 CFO Empresarial". Motivo: nao existe CNPJ com o nome CFO Empresarial (Marcos e Marcelo tem PJs
 separadas); a marca pode ser citada, o "LTDA" nao. Nenhum outro arquivo servido cita LTDA ou CNPJ (JSON-LD sem

@@ -11,7 +11,8 @@ Data: 19/09/2026. Pedido do Marcos: rever os acessos e bloquear países, por cau
 | --- | --- | --- |
 | Robôs verificados (buscadores e IA) | passam na primeira regra | o `robots.txt` libera de propósito; o Google rastreia dos EUA |
 | Sondas de invasão | bloqueio de `/.env`, `/.git`, `/.aws`, `/phpmyadmin`, todo `.php` e todo `/wp-*` | o site não tem PHP nem WordPress: nunca é gente |
-| País | desafio gerenciado fora de BR, PT, US, AR, UY, PY e CL, menos `/robots.txt`, `/sitemap.xml` e `/llms.txt` | humano passa quase sempre sem clique; robô não passa. Ninguém é bloqueado por país |
+| País | desafio gerenciado fora de BR, US, PT, ES, FR e DE (relações reais do Marcos; revisão de 19/09/2026), menos `/robots.txt`, `/sitemap.xml` e `/llms.txt` | humano passa quase sempre sem clique; robô não passa. Ninguém é bloqueado por país |
+| Rede de datacenter | desafio gerenciado para AWS, OVH, Hetzner, Contabo e afins, em qualquer país; Google e Microsoft ficam fora | a maior parte do robô sai de máquina alugada dentro dos países liberados; gente navega de operadora |
 | Limite de taxa (a regra única do plano Free) | 100 pedidos em 10 segundos por IP, site inteiro, castigo de 10 segundos | a página tem cerca de 15 arquivos; não existe endpoint a proteger |
 | Bot Fight Mode | **desligado** | a CSP deste site é restrita (`script-src 'self'`) e ele injeta script inline: daria erro de console. Só liga com prova Playwright de console limpo |
 | Bloqueio de robôs de IA e labirinto | desligados | a casa quer ser citada |
